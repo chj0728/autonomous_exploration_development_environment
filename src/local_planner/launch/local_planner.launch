@@ -1,13 +1,29 @@
 <launch>
 
+  <!-- sensorOffsetX: 机器人本体中心到传感器中心的x方向偏移量
+  sensorOffsetY: 机器人本体中心到传感器中心的y方向偏移量
+  sensorOffsetZ: 机器人本体中心到传感器中心的z方向偏移量
+  传感器相对与机器人本体的偏移量，这个值是固定的，不会随着机器人的运动而改变的，所以这个值是固定的。 -->
   <arg name="sensorOffsetX" default="0"/>
   <arg name="sensorOffsetY" default="0"/>
   <arg name="cameraOffsetZ" default="0"/>
+
+  <!-- twoWayDrive设置成false，这样机器人就只有向前的轨迹，只能向前走 -->
   <arg name="twoWayDrive" default="true"/>
+
+  <!-- maxSpeed: 机器人的最大速度
+  autonomyMode: 是否自动驾驶的模式，如果为true，那么机器人就是自动驾驶的模式，如果为false，那么机器人就是手柄控制的模式。
+  autonomySpeed: 自动驾驶的速度，这个值是自动驾驶的速度，如果autonomyMode为true，那么这个值就是自动驾驶的速度，如果autonomyMode为false，那么这个值就是手柄控制的速度。 -->
   <arg name="maxSpeed" default="2.0"/>
   <arg name="autonomyMode" default="true"/>
   <arg name="autonomySpeed" default="2.0"/>
+
+  <!-- joyToSpeedDelay: 手柄控制的速度，这个值是手柄控制的速度-->
   <arg name="joyToSpeedDelay" default="2.0"/>
+
+  <!-- goalX: 机器人的目标点的x坐标
+  goalY: 机器人的目标点的y坐标
+  这两个值是机器人的目标点的坐标，这个值是固定的，不会随着机器人的运动而改变的 --> 
   <arg name="goalX" default="0"/>
   <arg name="goalY" default="0"/>
 
@@ -21,9 +37,19 @@
     <param name="laserVoxelSize" type="double" value="0.05" />
     <param name="terrainVoxelSize" type="double" value="0.2" />
     <param name="useTerrainAnalysis" type="bool" value="true" />
+
+    <!-- 控制是否做碰撞检测的，这个值为false就是完全不做碰撞检测，设为true就是smart joystick模式。 -->
     <param name="checkObstacle" type="bool" value="true" />
+
+    <!-- 控制是否检测在机器人半径范围内的点云导致的碰撞，比如机器人本体携带的一些物体。 -->
     <param name="checkRotObstacle" type="bool" value="false" />
+
+    <!-- 机器人做碰撞检测的最大范围(并不是最终的范围)，
+    在这个范围内的点都会首先被加入到碰撞检测的点云内，
+    但是这并不是最终碰撞检测的范围，最终检测的范围是和速度相关的，小于这个值的。 -->
     <param name="adjacentRange" type="double" value="4.25" />
+
+
     <param name="obstacleHeightThre" type="double" value="0.15" />
     <param name="groundHeightThre" type="double" value="0.1" />
     <param name="costHeightThre" type="double" value="0.1" />

@@ -3,8 +3,12 @@
   <node pkg="terrain_analysis" type="terrainAnalysis" name="terrainAnalysis" output="screen" required="true">
     <param name="scanVoxelSize" type="double" value="0.05" />
     <param name="decayTime" type="double" value="2.0" />
+
+    <!-- 静止时，可通行区域(显示绿色)半径范围，一般小于等于clearingDis -->
     <param name="noDecayDis" type="double" value="4.0" />
+    <!-- 运动过程中清扫障碍物范围，相当于探测可通行区域(显示绿色)半径范围 -->
     <param name="clearingDis" type="double" value="8.0" />
+
     <param name="useSorting" type="bool" value="false" />
     <param name="quantileZ" type="double" value="0.25" />
     <param name="considerDrop" type="bool" value="true" />
@@ -20,10 +24,13 @@
     <param name="noDataObstacle" type="bool" value="false" />
     <param name="noDataBlockSkipNum" type="int" value="0" />
     <param name="minBlockPointNum" type="int" value="10" />
+    <!-- 相对于/map坐标系，障碍物探测(红色区域)高度范围，设置大于实际的小车高度 -->
     <param name="vehicleHeight" type="double" value="1.5" />
     <param name="voxelPointUpdateThre" type="int" value="100" />
     <param name="voxelTimeUpdateThre" type="double" value="2.0" />
+    <!-- 点云处理的最小高度 -->
     <param name="minRelZ" type="double" value="-2.5" />
+    <!-- 点云处理的最大高度 -->
     <param name="maxRelZ" type="double" value="1.0" />
     <param name="disRatioZ" type="double" value="0.2" />
   </node>
