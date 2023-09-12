@@ -78,8 +78,11 @@ roslaunch rslidar_sdk start.launch
 ##LIO_SAM
 roslaunch lio_sam run.launch
 
-##Autonomous 
+##Autonomous (local_planner,loam_interface,terrain_analysis)
 roslaunch vehicle_simulator system_real_robot.launch
+
+## far_planner
+roslaunch far_planner far_planner.launch
 ```
 ### 一键启动
 ```bash
