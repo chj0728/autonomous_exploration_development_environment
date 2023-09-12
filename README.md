@@ -50,9 +50,11 @@ turtlebot的话对应的就是机器人的中心位置，
 
 ## 8.[有关处理输入的点云信息时，定义的angDiff，dirToVehicle两个参数](https://bbs.csdn.net/topics/606377207?spm=1001.2014.3001.6376)
 
-## 9.[ehicleX和vehicleXRec这两个变量](https://bbs.csdn.net/topics/604052152?spm=1001.2014.3001.6376)
+## 9.[vehicleX和vehicleXRec这两个变量](https://bbs.csdn.net/topics/604052152?spm=1001.2014.3001.6376)
 >vehicleX是当前的机器人位置，vehicleRec是接收到第一帧数据时的位置，因为后面需要使用noDataInited来辅助判断一些负障碍物，也就是没有数据的地方，需要确保是因为传感器视野限制导致没有看到数据而不是当前没有接受到数据导致的没有数据，所以需要设置vehicleRec。在每次清理地形图之后也需要重置这个参数。
 
 ## 10.[有关pathscale这个参数的含义](https://bbs.csdn.net/topics/606362350?spm=1001.2014.3001.6376)
 
 ## 11.[如何设置局部地形代价阈值的问题](https://bbs.csdn.net/topics/608107762%EF%BC%8C%E4%B9%9F%E6%98%AF%E5%89%8D%E5%90%8E%E8%A1%8C%E8%BF%9B%E7%9A%84%E6%83%85%E5%86%B5%E5%A5%BD%E5%BE%88%E5%A4%9A%E3%80%82)
+
+## 12.[autonomous_exploration_development_environment如何导入自己学校的地图](https://bbs.csdn.net/topics/603858636)
