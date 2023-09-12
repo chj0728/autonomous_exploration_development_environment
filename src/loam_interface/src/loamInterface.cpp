@@ -61,7 +61,7 @@ void odometryHandler(const nav_msgs::Odometry::ConstPtr& odom)
     odomData.pose.pose.position.y = odom->pose.pose.position.x;
     odomData.pose.pose.position.z = odom->pose.pose.position.y;
   }
-
+  // odomData.pose.pose.position.z = odom->pose.pose.position.z + 1.12 ;
   // publish odometry messages
   odomData.header.frame_id = "/map";
   odomData.child_frame_id = "/sensor";
@@ -97,7 +97,10 @@ void laserCloudHandler(const sensor_msgs::PointCloud2ConstPtr& laserCloudIn)
       laserCloud->points[i].y = temp;
     }
   }
-
+    // int laserCloudSize = laserCloud->points.size();
+    // for (int i = 0; i < laserCloudSize; i++) {
+    //   laserCloud->points[i].z += 1.12;
+    // }
   // publish registered scan messages
   sensor_msgs::PointCloud2 laserCloud2;
   pcl::toROSMsg(*laserCloud, laserCloud2);
